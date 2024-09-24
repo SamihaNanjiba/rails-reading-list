@@ -42,6 +42,14 @@ class BooksController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def archived
+
+  end
+
+  def archive
+    
+  end
+
   private
     def book_params
       params.require(:book).permit(:title, :description, :year)
