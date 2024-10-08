@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.all.where(archived: false).order(:title)
   end
 
   def show
@@ -36,22 +36,25 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    @book = Book.all.find(params[:id])
     @book.destroy
 
     redirect_to root_path, status: :see_other
   end
 
-  def archived
+  def archive
+    @book = Book.find(params[:id])
+    @book.update(archived: true)
 
+    redirect_to root_path, status: :see_other
   end
 
-  def archive
-    
+  def archived
+    @books = Book.all.where(archived: true).order(:title)
   end
 
   private
     def book_params
-      params.require(:book).permit(:title, :description, :year)
+      params.require(:book).permit(:title, :description, :year, :old, :archived)
     end
 end

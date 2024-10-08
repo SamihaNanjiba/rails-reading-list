@@ -24,6 +24,22 @@
     </div>
 
     <div>
+        <%= form.label :old %><br>
+        <%= form.check_box :old, as: :boolean %>
+        <% book.errors.full_messages_for(:old).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :archived %><br>
+        <%= form.check_box :archived, as: :boolean %>
+        <% book.errors.full_messages_for(:archived).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
         <%= form.submit %>
     </div>
 <% end %>
