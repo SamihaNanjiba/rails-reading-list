@@ -53,6 +53,13 @@ class BooksController < ApplicationController
     @books = Book.all.where(archived: true).order(:title)
   end
 
+  def unarchive
+    @book = Book.find(params[:id])
+    @book.update(archived: false)
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
     def book_params
       params.require(:book).permit(:title, :description, :year, :old, :archived)

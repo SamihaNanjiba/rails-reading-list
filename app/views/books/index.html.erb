@@ -12,6 +12,9 @@
             <p> New! </p>
             <% end %>
         </td>
+        <td>
+            <%= button_to "Archive", archive_book_path(book), method: :put  %>
+        </td>
     </tr>
     <% end %>
 </table>

@@ -11,7 +11,7 @@
 <p><%= @book.description %></p>
 
 <ul>
-    <li><%= link_to "Archive", archive_book_path(@book) %></li>
+    <li><%= button_to "Archive", archive_book_path(@book), method: :put %></li>
     <li><%= link_to "Edit", edit_book_path(@book) %></li>
     <li><%= link_to "Destroy", book_path(@book), data: {
                         turbo_method: :delete,

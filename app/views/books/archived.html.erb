@@ -3,6 +3,7 @@
     <% @books.each do |book| %>
     <li>
         <%= link_to book.title, book %>
+        <%= button_to "Unarchive", unarchive_book_path(book), method: :put %>
     </li>
     <% end %>
 </ul>
