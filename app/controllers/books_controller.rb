@@ -1,10 +1,14 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all.where(archived: false).order(:title)
+
+    render json: @books
   end
 
   def show
     @book = Book.find(params[:id])
+
+    render json: @book
   end
 
   def new
@@ -51,6 +55,8 @@ class BooksController < ApplicationController
 
   def archived
     @books = Book.all.where(archived: true).order(:title)
+
+    render json: @books
   end
 
   def unarchive
