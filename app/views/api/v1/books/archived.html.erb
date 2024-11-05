@@ -1,0 +1,11 @@
+<h1>Archived Book List</h1>
+<ul>
+    <% @api_v1_books.each do |api_v1_book| %>
+    <li>
+        <%= link_to api_v1_book.title, api_v1_book %>
+        <%= button_to "Unarchive", unarchive_api_v1_book_path(api_v1_book), method: :put %>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to "Home", root_path %>

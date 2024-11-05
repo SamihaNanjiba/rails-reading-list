@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Books</h1>
+
+<div id="api_v1_books">
+  <% @api_v1_books.each do |api_v1_book| %>
+    <%= render api_v1_book %>
+    <p>
+      <%= link_to "Show this book", api_v1_book %>
+    </p>
+    <p>
+      <%= button_to "Archive this book", archive_api_v1_book_path(api_v1_book), method: :put %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_api_v1_book_path %>

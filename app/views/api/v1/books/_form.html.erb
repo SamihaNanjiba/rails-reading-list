@@ -1,0 +1,47 @@
+<%= form_with(model: api_v1_book) do |form| %>
+  <% if api_v1_book.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(api_v1_book.errors.count, "error") %> prohibited this api_v1_book from being saved:</h2>
+
+      <ul>
+        <% api_v1_book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :author, style: "display: block" %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :publication_year, style: "display: block" %>
+    <%= form.number_field :publication_year %>
+  </div>
+
+  <div>
+    <%= form.label :archived, style: "display: block" %>
+    <%= form.check_box :archived %>
+  </div>
+
+  <div>
+    <%= form.label :old, style: "display: block" %>
+    <%= form.check_box :old %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
